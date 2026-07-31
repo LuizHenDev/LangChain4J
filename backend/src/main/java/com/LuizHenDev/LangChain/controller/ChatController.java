@@ -2,6 +2,7 @@ package com.LuizHenDev.LangChain.controller;
 
 import com.LuizHenDev.LangChain.Service.AssisantAiService;
 import dev.langchain4j.service.Result;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/chat")
+@CrossOrigin(origins = "*")
 public class ChatController {
 
     private final AssisantAiService assistant;

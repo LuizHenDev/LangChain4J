@@ -1,0 +1,237 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  color: #f5e8ff;
+}
+
+.page-shell {
+  width: min(880px, calc(100% - 32px));
+  min-height: 100dvh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 0;
+}
+
+.chat-panel {
+  width: 100%;
+  min-height: 760px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(168, 85, 247, 0.18);
+  border-radius: 34px;
+  background: rgba(17, 7, 31, 0.8);
+  box-shadow: 0 24px 90px rgba(6, 0, 14, 0.62);
+  backdrop-filter: blur(24px);
+}
+
+.chat-header,
+.message-meta,
+.input-shell {
+  display: flex;
+  align-items: center;
+}
+
+.chat-header {
+  padding: 24px 26px;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.16);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #c084fc;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.message {
+  max-width: 84%;
+  border: 1px solid rgba(168, 85, 247, 0.16);
+  border-radius: 22px;
+  padding: 16px 18px;
+  background: rgba(34, 13, 58, 0.84);
+  color: #f3e8ff;
+}
+
+.message.user {
+  align-self: flex-end;
+  padding: 14px 18px 16px;
+  border-color: rgba(216, 180, 254, 0.34);
+  color: #18051f;
+  background: linear-gradient(135deg, #d8b4fe, #a855f7);
+}
+
+.message-meta {
+  justify-content: flex-start;
+  gap: 16px;
+  margin-bottom: 6px;
+  color: #bca7d6;
+  font-size: 0.76rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.message.user .message-meta {
+  color: rgba(24, 5, 31, 0.68);
+}
+
+.message-content {
+  line-height: 1.5;
+}
+
+.message.user .message-content {
+  line-height: 1.4;
+}
+
+.message-content p {
+  margin: 0;
+}
+
+.message-content p + p {
+  margin-top: 14px;
+}
+
+.message-content strong {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.message.user .message-content strong {
+  color: #18051f;
+}
+
+.message-content code {
+  border: 1px solid rgba(216, 180, 254, 0.22);
+  border-radius: 8px;
+  padding: 2px 7px;
+  color: #f0d9ff;
+  background: rgba(9, 3, 18, 0.48);
+  font-size: 0.92em;
+}
+
+.message.user .message-content code {
+  border-color: rgba(24, 5, 31, 0.16);
+  color: #18051f;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.composer {
+  border-top: 1px solid rgba(168, 85, 247, 0.16);
+  padding: 22px;
+  background: rgba(9, 3, 18, 0.58);
+}
+
+.composer label {
+  display: block;
+  margin-bottom: 10px;
+  color: #cbb9df;
+  font-weight: 800;
+}
+
+.input-shell {
+  gap: 12px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 82px;
+  resize: vertical;
+  border: 1px solid rgba(168, 85, 247, 0.24);
+  border-radius: 20px;
+  padding: 16px;
+  color: #f5e8ff;
+  background: rgba(13, 5, 24, 0.96);
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea:focus {
+  border-color: #c084fc;
+  box-shadow: 0 0 0 4px rgba(192, 132, 252, 0.14);
+}
+
+button {
+  min-height: 82px;
+  border: 0;
+  border-radius: 20px;
+  padding: 0 28px;
+  color: #18051f;
+  background: linear-gradient(135deg, #d8b4fe, #a855f7);
+  font: inherit;
+  font-weight: 950;
+  cursor: pointer;
+  box-shadow: 0 18px 34px rgba(168, 85, 247, 0.26);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.form-status {
+  min-height: 22px;
+  margin-top: 10px;
+  color: #cbb9df;
+  font-size: 0.94rem;
+}
+
+.form-status.error {
+  color: #fca5a5;
+}
+
+@media (max-width: 620px) {
+  .page-shell {
+    width: min(100% - 20px, 880px);
+    padding: 10px 0;
+  }
+
+  .chat-panel {
+    min-height: calc(100dvh - 20px);
+    border-radius: 24px;
+  }
+
+  .input-shell {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    min-height: 54px;
+  }
+
+  .message {
+    max-width: 100%;
+  }
+}

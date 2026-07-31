@@ -1,0 +1,40 @@
+<main class="page-shell">
+  <section class="chat-panel" aria-label="Chat com assistente de IA">
+    <header class="chat-header">
+      <div>
+        <p class="eyebrow">Assistente</p>
+        <h2>Conversa</h2>
+      </div>
+    </header>
+
+    <div class="messages" aria-live="polite">
+      @for (message of messages(); track message.id) {
+        <article class="message" [class.user]="message.role === 'user'">
+          <div class="message-meta">
+            <span>{{ message.author }}</span>
+          </div>
+          <div class="message-content" [innerHTML]="formatMessage(message.content)"></div>
+        </article>
+      }
+    </div>
+
+    <form class="composer" (ngSubmit)="sendMessage()">
+      <label for="message">Sua mensagem</label>
+      <div class="input-shell">
+        <textarea
+          id="message"
+          name="message"
+          rows="3"
+          placeholder="Digite sua pergunta. Use Shift + Enter para quebrar linha."
+          [(ngModel)]="draft"
+          [disabled]="isLoading()"
+          (keydown)="submitWithEnter($event)"
+        ></textarea>
+        <button type="submit" [disabled]="isLoading() || !draft.trim()">
+          {{ isLoading() ? 'Enviando...' : 'Enviar' }}
+        </button>
+      </div>
+      <p class="form-status" [class.error]="hasError()">{{ status() }}</p>
+    </form>
+  </section>
+</main>
