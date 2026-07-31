@@ -1,59 +1,81 @@
-# Frontend
+# Frontend LUERP
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.19.
+Interface Angular para conversar com o assistente de IA do backend Spring Boot.
 
-## Development server
+O frontend envia mensagens para `http://localhost:8080/chat` e exibe as respostas formatadas no chat.
 
-To start a local development server, run:
+## Tecnologias
 
-```bash
-ng serve
-```
+- Angular 21
+- TypeScript
+- CSS
+- Vitest para testes
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Pré-requisitos
 
-## Code scaffolding
+- Node.js compatível com Angular 21
+- npm
+- Backend rodando em `http://localhost:8080`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Instalação
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Na pasta `frontend`, instale as dependências:
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Rodar em desenvolvimento
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Inicie o servidor local:
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+Depois acesse:
 
-For end-to-end (e2e) testing, run:
+```text
+http://localhost:4200
+```
+
+A aplicação recarrega automaticamente quando os arquivos do frontend são alterados.
+
+## Rodar o backend
+
+Em outro terminal, a partir da raiz do projeto:
 
 ```bash
-ng e2e
+cd backend
+.\mvnw.cmd spring-boot:run
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Build de produção
 
-## Additional Resources
+Para gerar a versão de build:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm run build
+```
+
+Os arquivos gerados ficam em `dist/frontend`.
+
+## Testes
+
+Para executar os testes:
+
+```bash
+npm test -- --watch=false
+```
+
+## Estrutura principal
+
+```text
+frontend/
+  src/
+    app/
+      app.ts
+      app.html
+      app.css
+    styles.css
+```
